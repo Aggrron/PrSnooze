@@ -7,8 +7,6 @@ public class SnoozeControl : MonoBehaviour {
 	
 	public Rigidbody2D rb;
 
-	private Vector2 st_pos;
-	private Vector2 next_pos;
 
 	void Start () {
 		
@@ -20,11 +18,20 @@ public class SnoozeControl : MonoBehaviour {
 	}
 		
 	void OnMouseDown(){
-		st_pos = Input.mousePosition;
+		
 	}
 	void OnMouseUp(){
-		next_pos = Input.mousePosition;
-		rb.AddForce (st_pos - next_pos);
+		//rb.constraints = RigidbodyConstraints2D.None;
+
 		//Debug.Log(next_pos);
 	}
+
+	void OnCollisionEnter2D(Collision2D col){
+		if (col.gameObject.name == "Wall") {
+			rb.constraints = RigidbodyConstraints2D.FreezePositionY|RigidbodyConstraints2D.FreezePositionX|RigidbodyConstraints2D.FreezeRotation;
+
+
+		}
+	}
+
 }
