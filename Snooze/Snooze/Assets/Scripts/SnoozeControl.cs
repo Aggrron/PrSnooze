@@ -7,6 +7,15 @@ public class SnoozeControl : MonoBehaviour {
 	
 	public Rigidbody2D rb;
 
+	public int Score = 0;
+
+	public void ChangeScore(int diff){
+		Score += diff;
+	}
+	public void PrintScore(){
+		Debug.Log (Score);
+	}
+
 
 	void Start () {
 		
@@ -17,9 +26,6 @@ public class SnoozeControl : MonoBehaviour {
 
 	}
 		
-	void OnMouseDown(){
-		
-	}
 	void OnMouseUp(){
 		//rb.constraints = RigidbodyConstraints2D.None;
 
