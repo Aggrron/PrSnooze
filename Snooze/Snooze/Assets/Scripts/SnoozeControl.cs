@@ -33,7 +33,7 @@ public class SnoozeControl : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D col){
-		if (col.gameObject.name == "Wall") {
+		if ((col.gameObject.name.Substring(0,4) == "Wall")|(col.gameObject.name.Substring(0,4) == "Wall_R")) {
 			rb.constraints = RigidbodyConstraints2D.FreezePositionY|RigidbodyConstraints2D.FreezePositionX|RigidbodyConstraints2D.FreezeRotation;
 
 

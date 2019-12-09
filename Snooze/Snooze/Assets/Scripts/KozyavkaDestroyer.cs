@@ -35,7 +35,7 @@ public class KozyavkaDestroyer : MonoBehaviour {
 		if (col.gameObject.name == "HitBox") {
 			SnoozeControl script = getScript ();
 			script.ChangeScore (1);
-			script.PrintScore ();
+			//script.PrintScore ();
 			Destroy (gameObject);
 		}
 	}

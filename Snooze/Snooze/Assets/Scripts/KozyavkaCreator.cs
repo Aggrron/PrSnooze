@@ -18,8 +18,9 @@ public class KozyavkaCreator : MonoBehaviour {
 		if (Time.time > nextSpawnTime) {
 			nextSpawnTime += period;
 			//Debug.Log(transform.localPosition);
-			Vector3 new_position = transform.localPosition;
+			Vector3 new_position = transform.position;
 			new_position [0] = Random.Range (-2f, 2f);
+			new_position [2] = -1;
 			Instantiate(koz, new_position,Quaternion.identity);
 
 		}
