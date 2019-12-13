@@ -12,29 +12,33 @@ public class WallCreator : MonoBehaviour {
 
 	private int counter;
 	private bool wall_flag;
+	private float wall_length;
+
 
 	void Start () {
-		counter = 1;
+		counter = 0;
 		wall_flag = false;
+		wall_length = 14.3f;
 		
 	}
 
 	void CreateWall(){
 		Vector3 new_wall_pos_l = wall_end.transform.position;
 		Vector3 new_wall_pos_r = wall_end.transform.position;
-		new_wall_pos_l [1] = (7 * counter) + (7 / 2);
+		new_wall_pos_l [1] = 2*(wall_end.transform.position.y * (counter+1));
 		new_wall_pos_r [0] = 2.78f;
-		new_wall_pos_r [1] = (7 * counter) + (7 / 2);
+		new_wall_pos_r [1] = 2*(wall_end.transform.position.y * (counter+1));
 		Instantiate(wall_l, new_wall_pos_l, Quaternion.identity);
 		Instantiate (wall_r, new_wall_pos_r, Quaternion.identity);
 		wall_flag = false;
 		counter += 1;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		Vector3 cam_pos = pos_detector.transform.position;
-		if (cam_pos [1] >= 7*counter) {
+		if (cam_pos [1] >= wall_end.transform.position.y+(counter*wall_length)) {
 			wall_flag = true;
 		}
 		if (wall_flag) {
