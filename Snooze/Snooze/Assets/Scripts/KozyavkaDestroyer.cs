@@ -5,12 +5,14 @@ using UnityEngine;
 public class KozyavkaDestroyer : MonoBehaviour {
 	
 	SnoozeControl snoozeScr;
+	private GameObject soplya;
 
 	void Start () {
-	 	GameObject soplya = GameObject.Find ("Soplya");
+	 	soplya = GameObject.Find ("Soplya");
 		SnoozeControl snoozeScript = soplya.GetComponent<SnoozeControl> ();
 		setScript (snoozeScript);
 	}
+
 
 	void setScript(SnoozeControl script){
 		snoozeScr = script;
@@ -22,13 +24,16 @@ public class KozyavkaDestroyer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (Mathf.Abs (soplya.transform.position.y - transform.position.y) >= 15) {
+			Destroy (gameObject);
+		}	
 	}
 		
 	void OnCollisionEnter2D(Collision2D col){
 		if (col.gameObject.name == "Floor") {
 			Destroy (gameObject);
 		}
+
 	}
 
 	void OnTriggerEnter2D(Collider2D col){

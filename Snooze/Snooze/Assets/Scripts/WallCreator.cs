@@ -26,7 +26,7 @@ public class WallCreator : MonoBehaviour {
 		Vector3 new_wall_pos_l = wall_end.transform.position;
 		Vector3 new_wall_pos_r = wall_end.transform.position;
 		new_wall_pos_l [1] = 2*(wall_end.transform.position.y * (counter+1));
-		new_wall_pos_r [0] = 2.78f;
+		new_wall_pos_r [0] = 2.69f;
 		new_wall_pos_r [1] = 2*(wall_end.transform.position.y * (counter+1));
 		Instantiate(wall_l, new_wall_pos_l, Quaternion.identity);
 		Instantiate (wall_r, new_wall_pos_r, Quaternion.identity);
