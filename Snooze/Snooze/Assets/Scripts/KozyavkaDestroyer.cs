@@ -5,18 +5,25 @@ using UnityEngine;
 public class KozyavkaDestroyer : MonoBehaviour {
 	
 	SnoozeControl snoozeScr;
+	LiqiudBehaviour LiqScript;
 	private GameObject soplya;
+	private LiqiudBehaviour LiquidScr;
+	public GameObject Liquid;
 
 	void Start () {
 	 	soplya = GameObject.Find ("Soplya");
 		SnoozeControl snoozeScript = soplya.GetComponent<SnoozeControl> ();
+		LiqiudBehaviour LiquidScript = Liquid.GetComponent<LiqiudBehaviour> ();
 		setScript (snoozeScript);
-	}
 
+
+	}
+		
 
 	void setScript(SnoozeControl script){
 		snoozeScr = script;
 	}
+		
 
 	SnoozeControl getScript(){
 		return snoozeScr;
@@ -28,6 +35,7 @@ public class KozyavkaDestroyer : MonoBehaviour {
 			Destroy (gameObject);
 		}	
 	}
+
 		
 	void OnCollisionEnter2D(Collision2D col){
 		if (col.gameObject.name == "Floor") {

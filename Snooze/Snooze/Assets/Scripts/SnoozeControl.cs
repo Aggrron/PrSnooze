@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class SnoozeControl : MonoBehaviour {
@@ -36,8 +37,12 @@ public class SnoozeControl : MonoBehaviour {
 		if ((col.gameObject.name.Substring(0,4) == "Wall")|(col.gameObject.name.Substring(0,4) == "Wall_R")) {
 			rb.constraints = RigidbodyConstraints2D.FreezePositionY|RigidbodyConstraints2D.FreezePositionX|RigidbodyConstraints2D.FreezeRotation;
 
-
+		}
+		if (col.gameObject.name == "Liquid") {
+			Debug.Log ("Game Over");
+			SceneManager.LoadScene ("GameScene", LoadSceneMode.Single);
 		}
 	}
+
 
 }
